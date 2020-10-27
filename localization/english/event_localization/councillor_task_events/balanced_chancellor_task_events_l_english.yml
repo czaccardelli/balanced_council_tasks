@@ -1,0 +1,8 @@
+﻿l_english:
+ chancellor_task.1001.t:0 "A New Claimant"
+ chancellor_task.1001.desc:0 "Of all the buffoonery I have ever seen...\n\nIn [councillor.GetTitledFirstNamePossessive] inane efforts to improve my relations with my neighbors, my good-for-nothing [councillor.GetCouncilTitle] has officially acknowledged [neighboring_ruler.GetTitledFirstNamePossessive] claim to the [target_county.GetName] in a letter!"
+ chancellor_task.1001.a:0 "At least they pose no threat to me!"
+ chancellor_task.1001.b:0 "Send after that courier immediately!"
+
+ balanced_chancellor_task.1002.a:0 "I wasn't serious when I said I'd be a better ruler, but I'll take it!"
+ balanced_chancellor_task.1002.desc:0 "A courier arrives with a letter from [councillor.GetTitledFirstName].  You open it and see that he has somehow mistaken some light comments you made about his liege's rulership over the [target_county.GetName] as anything but."

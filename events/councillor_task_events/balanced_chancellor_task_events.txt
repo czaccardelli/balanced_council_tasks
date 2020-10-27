@@ -1,0 +1,109 @@
+﻿chancellor_task.1001 = {
+	type = character_event
+	title = chancellor_task.1001.t
+	desc = chancellor_task.1001.desc
+	theme = diplomacy
+	left_portrait = {
+		character = scope:councillor
+		animation = shame
+	}
+	lower_left_portrait = scope:neighboring_ruler
+	
+	trigger = {
+		NOT = {
+			has_character_flag = had_event_chancellor_task_1001
+		}
+		exists = cp:councillor_chancellor
+		scope:councillor = cp:councillor_chancellor
+		scope:councillor = {
+			diplomacy < high_skill_rating
+		}
+		any_neighboring_realm_same_rank_owner = {
+			chancellor_task_1001_neighboring_ruler_trigger = yes
+		}
+	}
+
+	weight_multiplier = {
+		base = 1
+		compare_modifier = {
+			target = scope:councillor
+			value = diplomacy
+			multiplier = -0.2
+			offset = inverted_high_skill_rating
+		}
+	}
+
+	immediate = {
+		add_character_flag = {
+			flag = had_event_chancellor_task_1001
+			years = 5
+		}
+		set_variable = {
+			name = had_chancellor_task_side_effect
+			value = yes
+			days = chancellor_task_side_effect_cooldown
+		}
+		random_neighboring_realm_same_rank_owner = {
+			limit = {
+				chancellor_task_1001_neighboring_ruler_trigger = yes
+			}
+			save_scope_as = neighboring_ruler
+		}
+		random_sub_realm_county = {
+			limit = {
+				chancellor_task_1001_new_claim_trigger = yes
+			}
+			save_scope_as = target_county
+		}
+	}
+
+	option = { # Do nothing
+		name = chancellor_task.1001.a
+		scope:neighboring_ruler = {
+			add_unpressed_claim = scope:target_county
+		}
+        scope:neighboring_ruler = {
+            trigger_event = {
+                id = balanced_chancellor_task.1002
+                days = { 1 3 }
+            }
+        }
+        ai_chance = {
+            base = 10
+            ai_value_modifier = {
+                ai_boldness = 0.1
+            }
+        }
+	}
+    option = { # Stop the claim
+		name = chancellor_task.1001.b
+        remove_short_term_gold = minor_gold_value
+        ai_chance = {
+            base = 0
+            modifier = {
+                add = 90
+                short_term_gold > minor_gold_value
+            }
+        }
+	}
+}
+
+balanced_chancellor_task.1002 = {
+    type = character_event
+	title = chancellor_task.1001.t
+	desc = balanced_chancellor_task.1002.desc
+	theme = diplomacy
+	left_portrait = {
+		character = scope:councillor
+		animation = shame
+	}
+	lower_left_portrait = scope:neighboring_ruler
+    option = { 
+		name = balanced_chancellor_task.1002.a
+		show_as_tooltip = {
+            scope:neighboring_ruler = {
+			    add_unpressed_claim = scope:target_county
+		    }
+		}
+	}
+}
