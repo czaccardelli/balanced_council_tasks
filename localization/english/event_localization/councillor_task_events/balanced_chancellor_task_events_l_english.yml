@@ -5,4 +5,4 @@
  chancellor_task.1001.b:0 "Send after that courier immediately!"
 
  balanced_chancellor_task.1002.a:0 "I wasn't serious when I said I'd be a better ruler, but I'll take it!"
- balanced_chancellor_task.1002.desc:0 "A courier arrives with a letter from [councillor.GetTitledFirstName].  You open it and see that he has somehow mistaken some light comments you made about his liege's rulership over the [target_county.GetName] as anything but."
+ balanced_chancellor_task.1002.desc:0 "A courier arrives with a letter from [chancellor.GetTitledFirstName].  You open it and see that he has somehow mistaken some light comments you made about his liege's rulership over the [target_county.GetName] as anything but."
