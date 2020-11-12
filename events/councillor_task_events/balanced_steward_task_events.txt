@@ -1,0 +1,72 @@
+﻿#Extra Taxes
+# by Petter Vilberg
+
+steward_task.1101 = {
+	hidden = yes
+
+	trigger = {
+		exists = scope:councillor
+		scope:councillor = {
+			councillor_positive_event_opinion_trigger = yes
+			stewardship > mediocre_skill_rating
+		}
+	}
+
+	weight_multiplier = {
+		base = 1
+		compare_modifier = {
+			target = scope:councillor
+			value = stewardship
+			multiplier = 0.2
+			offset = inverted_mediocre_skill_rating
+		}
+	}
+
+	immediate = {
+		cp:councillor_steward = {
+			save_scope_as = active_councillor
+		}
+		set_variable = {
+			name = had_steward_task_side_effect
+			value = yes
+			days = steward_task_side_effect_cooldown
+		}
+		random_sub_realm_county = {
+			limit = {
+				holder = root
+			}
+			save_scope_as = county
+		}
+
+		send_interface_message = {
+			type = event_steward_task_good
+			title = steward_task.1101.notification
+			desc = {
+				triggered_desc = {
+					trigger = {
+						scope:active_councillor = { stewardship <= average_skill_level }
+					}
+					desc = task_stewardship_good_unskilled_notification_tooltip
+				}
+				triggered_desc = {
+					trigger = {
+						scope:active_councillor = { stewardship > average_skill_level }
+					}
+					desc = task_stewardship_good_skilled_notification_tooltip
+				}
+			}
+			
+			right_icon = scope:councillor
+			tooltip = task_collect_taxes_notification_tooltip
+
+			add_gold = {
+                # value is equal to liege's monthly income for a number of months equal to steward's stewardship skill
+                value = scope:councillor.liege.monthly_character_income
+                multiply = scope:councillor.stewardship
+            }
+			stress_impact = {
+				greedy = medium_stress_impact_loss
+			}
+		}
+	}
+}
