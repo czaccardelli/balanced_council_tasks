@@ -773,6 +773,7 @@ steward_task.2101 = {
 			
 			add_gold = {
                 every_county_province = {
+                    # equal to X number of months' income for all holdings directly held by steward's liege in the county where X is steward's stewardship
                     limit = {
                         holder = scope:councillor.liege
                     }
