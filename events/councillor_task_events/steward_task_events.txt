@@ -772,15 +772,16 @@ steward_task.2101 = {
 			tooltip = task_develop_county_notification_tooltip
 			
 			add_gold = {
-                every_county_province = {
-                    # equal to X number of months' income for all holdings directly held by steward's liege in the county where X is steward's stewardship
-                    limit = {
-                        holder = scope:councillor.liege
+                scope:county = {
+                    every_county_province = {
+                        # equal to X number of months' income for all holdings directly held by steward's liege in the county where X is steward's stewardship
+                        limit = {
+                            holder = scope:councillor.liege
+                        }
+                        add = monthly_income
+                        multiply = scope:councillor.stewardship
                     }
-                    add = monthly_income
-                    multiply = scope:councillor.stewardship
                 }
-
             }
 			scope:county = {
 				add_county_modifier = {
