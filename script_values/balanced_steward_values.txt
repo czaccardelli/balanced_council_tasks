@@ -1,0 +1,5 @@
+﻿steward_collect_taxes_bonus_tax_income  = {
+    # value is equal to liege's monthly income for a number of months equal to steward's stewardship skill
+    value = liege.monthly_character_income
+    multiply = stewardship
+}
