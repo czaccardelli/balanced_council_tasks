@@ -776,7 +776,7 @@ steward_task.2101 = {
                     every_county_province = {
                         # equal to X number of months' income for all holdings directly held by steward's liege in the county where X is steward's stewardship
                         limit = {
-                            holder = scope:councillor.liege
+                            barony.holder = scope:councillor.liege
                         }
                         add = monthly_income
                         multiply = scope:councillor.stewardship
