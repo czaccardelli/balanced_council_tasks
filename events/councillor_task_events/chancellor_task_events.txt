@@ -54,13 +54,13 @@
 
 # used to override chancellor_task.1001 (accidental claim given)
 chancellor_task.1001 = {
-    hidden = yes
-    immediate = {
+	hidden = yes
+	immediate = {
         trigger_event = {
             id = balanced_chancellor_task.1001
             days = 1
-        }
-    }
+		}
+	}
 }
 
 
@@ -850,7 +850,7 @@ chancellor_task.2101 = {
 		exists = cp:councillor_chancellor
 		scope:councillor = cp:councillor_chancellor
 		scope:councillor = {
-			diplomacy < high_skill_rating
+			diplomacy > high_skill_rating
 		}
 		OR = {
 			AND = {
@@ -962,7 +962,7 @@ chancellor_task.2102 = {
 		exists = cp:councillor_chancellor
 		scope:councillor = cp:councillor_chancellor
 		scope:councillor = {
-			diplomacy < high_skill_rating
+			diplomacy > high_skill_rating
 		}
 		scope:county.duchy = {
 			chancellor_task_2102_duchy_trigger = yes
@@ -1085,7 +1085,7 @@ chancellor_task.2103 = {
 		exists = cp:councillor_chancellor
 		scope:councillor = cp:councillor_chancellor
 		scope:councillor = {
-			diplomacy < high_skill_rating
+			diplomacy > high_skill_rating
 		}
 		scope:county.duchy = {
 			chancellor_task_2103_duchy_trigger = yes
