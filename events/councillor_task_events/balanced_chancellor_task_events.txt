@@ -101,9 +101,9 @@ balanced_chancellor_task.1001 = {
 		name = chancellor_task.1001.b
         remove_short_term_gold = minor_gold_value
         ai_chance = {
-            base = 0
+            base = 50
             modifier = {
-                add = 90
+                add = 40
                 short_term_gold > minor_gold_value
             }
 			modifier = {
